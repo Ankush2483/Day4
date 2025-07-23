@@ -11,9 +11,8 @@ public class SetEx5 {
             }
             seen.add(num);
         }
-        return null;  // No repeated elements
+        return null;
     }
-
             public static void main(String[] args) {
                 List<Integer> numbers = Arrays.asList(3, 5, 4, 3, 2, 5, 1);
                 Integer result = findFirstRepeated(numbers);
