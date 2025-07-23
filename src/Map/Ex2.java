@@ -1,22 +1,26 @@
 package Map;
-
 import java.util.HashMap;
 import java.util.Map;
-
 public class Ex2 {
-    public static void main(String[] args) {
-        Map<Integer,String> map = new HashMap<>();
-        map.put(15,"World");
-        map.put(21,"hello");
-        map.put(11,"java");
-        map.put(22,"php");
-        map.put(14,"world");
-        System.out.println("Original map"+ map);
+    public static class DuplicateCounter {
+        public static void main(String[] args) {
+            int[] numbers = {4, 5, 6, 4, 5, 6, 7, 4, 5};
 
-        for(Map.Entry<Integer,String> entry:map.entrySet()){
-            if(entry.getValue().equals("World")){
-                System.out.println(entry.getValue());
+            Map<Integer, Integer> countMap = new HashMap<>();
+
+            // Count occurrences
+            for (int number : numbers) {
+                countMap.put(number, countMap.getOrDefault(number, 0) + 1);
+            }
+
+            // Print duplicates with counts
+            System.out.println("Duplicate elements and their counts:");
+            for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
+                if (entry.getValue() > 1) {
+                    System.out.println("Number: " + entry.getKey() + ", Count: " + entry.getValue());
+                }
             }
         }
     }
+
 }

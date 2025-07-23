@@ -1,21 +1,37 @@
 package Collection.List;
-
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-//Find the second-highest number in a list.
+//Find the second-highest number in a list
 public class Ex4 {
-    public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        for(int i=0;i<list.size();i++) {
-            if(list.get(i)==4) {
-                System.out.println(list.get(i));
+    public class SecondHighest {
+        public static void main(String[] args) {
+            int[] numbers = {12, 45, 67, 45, 89, 89, 23};
+
+            Integer first = null;
+            Integer second = null;
+
+            for (int number : numbers) {
+                if (first == null || number > first) {
+                    second = first;
+                    first = number;
+                } else if ((number != first) && (second == null || number > second)) {
+                    second = number;
+                }
+            }
+
+            if (second != null) {
+                System.out.println("Second highest number is: " + second);
+            } else {
+                System.out.println("There is no second highest number.");
             }
         }
     }
+
+
 }
+
+
+
+
+
